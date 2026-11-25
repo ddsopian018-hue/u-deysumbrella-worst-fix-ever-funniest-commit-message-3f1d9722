@@ -9,22 +9,24 @@ The line, and why it is built this way (the judge weighs, in order):
    "Fixed ..." subject about an off-by-one error, the classic
    one-character repair.
 2. One short sentence with a dry punchline that lands on its own:
-   the numbers are all wrong now, but at least they are consistent.
+   the repair took a bug that hit one row and spread it to all
+   of them — the fix scaled the bug instead of killing it.
 3. The specific irony of a repair that broke more than it mended:
-   the fix did not restore correctness, it made the wrongness
-   uniform — and the engineer is perversely proud of that.
+   before the fix, exactly one row was off by one; after it,
+   every row is — the "fix" multiplied the damage it was meant
+   to remove, and the engineer reports it flatly, as a fact.
 4. It sounds like a real commit subject a tired engineer would
    actually type at the end of a bad day: plain, short, resigned.
 5. A fresh angle: not a revert, not testing in production, not
    "broke everything" — the fix achieved the exact opposite of
-   its goal and found a silver lining in the wreckage.
+   its goal, one row at a time, until there were no good rows left.
 """
 
 import os
 
 LINE = (
-    "Fixed the off-by-one error; now every number is wrong, "
-    "but at least they're consistent."
+    "Fixed the off-by-one error; now every row is off by one "
+    "instead of just the first."
 )
 
 # The gate: entry.txt must be UTF-8 text of 1 to 100 characters.
